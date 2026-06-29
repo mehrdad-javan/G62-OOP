@@ -4,12 +4,14 @@ package se.lexicon;
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     void main() {
-        Employee anna = new Employee("Anna", "Developer", Department.IT,        75000);
-        Employee lena = new Employee("Lena", "Designer",  Department.MARKETING, 65000);
 
-        anna.displayInfo();               // Anna | Developer | IT | 75000.0
-        lena.displayInfo();               // Lena | Designer | MARKETING | 65000.0
 
-        Employee.printTotalEmployees();   // Total employees hired: 2
+        Employee johan = new Employee("Johan", "Developer", Department.IT,        80000, "2023-01-15", "Full-Time");
+        Employee sofia = new Employee("Sofia", "Designer",  Department.MARKETING, 60000, "2023-03-01", "Part-Time");
+
+        johan.displayInfo();  // Johan | Developer | IT | 80000.0 | Full-Time contract (started: 2023-01-15)
+        sofia.displayInfo();  // Sofia | Designer | MARKETING | 60000.0 | Part-Time contract (started: 2023-03-01)
+
+
     }
 }
