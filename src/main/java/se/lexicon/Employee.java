@@ -1,6 +1,6 @@
 package se.lexicon;
 
-public class Employee {
+public abstract class Employee {
 
     // ── FIELDS ────────────────────────────────────────────────────────
     private String       name;
@@ -69,6 +69,16 @@ public class Employee {
         IO.println(getName() + "'s new salary: $" + getSalary());
     }
 
+    public void raiseSalary(double amount, String reason) {
+        if (amount <= 0)
+            throw new IllegalArgumentException("Raise amount must be positive.");
+        if (reason == null || reason.isBlank())
+            throw new IllegalArgumentException("Reason must not be empty.");
+        this.salary += amount;
+        IO.println(getName() + "'s salary raised by " + amount + " (" + reason + "). New salary: " + getSalary());
+    }
+
+
     public void introduce() {
         IO.println("Hi, I'm " + getName() + ", " + getRole() + " in " + getDepartment() + ".");
     }
@@ -88,4 +98,8 @@ public class Employee {
     public void use(Laptop laptop) {
         IO.println(getName() + " is using " + laptop.getDetails());
     }
+
+
+
+    public abstract void onboard(Employee newEmployee);
 }
